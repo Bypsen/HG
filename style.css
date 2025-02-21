@@ -142,3 +142,100 @@ h1 {
     z-index: 3;
     pointer-events: none;
   }
+
+
+body {
+    background-color: #222;
+    overflow: hidden;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 90%; /* Занимает 90% ширины, реагирует на изменение ширины экрана */
+    max-width: 800px; /* Максимальная ширина */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 0 auto; /* Центрирует контейнер на странице */
+}
+
+.shooting-star {
+    position: absolute;
+    width: 10px; /* Уменьшаем размер звезды на меньших экранах */
+    height: 10px;
+    background-color: yellow;
+    border-radius: 50%;
+    animation: shootingStar 5s linear infinite;
+}
+
+@keyframes shootingStar {
+    0% { transform: translateY(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
+}
+
+.wish {
+    font-size: 3em;
+    text-shadow: 2px 2px 4px #000;
+    margin-bottom: 20px;
+}
+
+.tree, .snow-hill {
+    max-width: 80%; /* Максимум 80% ширины контейнера */
+    margin: 10px auto; /* Автоматические отступы слева и справа */
+    display: block; /* Отображение как блочный элемент */
+}
+
+.countdown-container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px; /* уменьшаем отступы для меньших экранов */
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#countdown {
+    font-size: 1.5em; /* Уменьшаем размер текста */
+    color: gold;
+}
+
+/* Media queries для адаптивности */
+@media (max-width: 768px) {
+    .wish {
+        font-size: 2em; /* Уменьшаем размер заголовка */
+    }
+    .tree, .snow-hill {
+        max-width: 100%; /* Изображения занимают всю ширину на маленьких экранах */
+    }
+    .countdown-container {
+      padding: 10px;
+    }
+    #countdown {
+      font-size: 1.2em;
+    }
+    .shooting-star {
+      width: 8px;
+      height: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wish {
+        font-size: 1.5em;
+    }
+    .countdown-container {
+      padding: 5px;
+    }
+    #countdown {
+      font-size: 1em;
+    }
+    .shooting-star {
+      width: 5px;
+      height: 5px;
+    }
+}
